@@ -9,10 +9,13 @@ a) The Problem Definition
           - Users will be able to save files, open files, and open exsting projects
           - Project will store data such as # and location of beats/vocals, instrument choices, and more.
             It will also store data such as project name, creator's name, and file size (calculated using # of components added)    
+          - Users will be able to insert new projects, replace existing projects, and delete projects.
+          - Users will have the ability to sort their list of projects by date, file size, etc.
       - Instruments and Vocals
           - A library of preset instrument sounds and vocals are there for the user to use.
           - Users will have the ability to preview the sound, by selecting it and clicking preview.
       - Custom Audio File Import System
-          - Users will have the ability to import custom vocals and music audios
+          - Users will have the ability to import custom vocals and music to the list of audios
+          - Users will have the option to use the insert, delete, and change methods to edit the list of audios.
 
 b) The Analysis
