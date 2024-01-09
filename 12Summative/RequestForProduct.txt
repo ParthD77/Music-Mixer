@@ -4,7 +4,8 @@ a) The Problem Definition
       compose unique beats you. You will be able to use both present instrument sounds and vocals, alongwith having
       the option to import custom audio files.
 
-    Key Features:
+b) The Analysis
+       Key Features:
       - Project Management
           - Users will be able to save files, open files, and open exsting projects
           - Project will store data such as # and location of beats/vocals, instrument choices, and more.
@@ -17,5 +18,3 @@ a) The Problem Definition
       - Custom Audio File Import System
           - Users will have the ability to import custom vocals and music to the list of audios
           - Users will have the option to use the insert, delete, and change methods to edit the list of audios.
-
-b) The Analysis
