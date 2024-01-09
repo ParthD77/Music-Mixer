@@ -7,7 +7,7 @@ a) The Problem Definition
     Key Features:
       - Project Management
           - Users will be able to save files, open files, and open exsting projects
-          - Project will store information such as beats/vocals, instrument choices, custom
+          - Project will store information such as beats/vocals, instrument choices, custom audio files, etc.
       - 
       - 
       - 
