@@ -2,7 +2,12 @@ a) The Problem Definition
       The project will design and implement a Music Player application. This application will allow users to create, 
       save, and open musical projects. The application will also provide a user-friendly intercace for the user to 
       compose unique beats you. You will be able to use both present instrument sounds and vocals, alongwith having
-      the option to import custom audio files.
+      the option to import custom audio files including your own personal vocals. This project will also include 
+      software based instruments, such as the piano and beat maker, where u can use to create your custom audios. 
+      A loop library is also implemented into the program where a user can add, remove, sort, and more to. This 
+      library would store saved songs. 
+      This program's main purpose is to allow users to create their own music. Allowing new and upcoming artists to 
+      create music for absolutely free, while also being given a very easy to use GUI, for easy navigation. 
 
 b) The Analysis
        Key Features:
@@ -18,3 +23,8 @@ b) The Analysis
       - Custom Audio File Import System
           - Users will have the ability to import custom vocals and music to the list of audios
           - Users will have the option to use the insert, delete, and change methods to edit the list of audios.
+      - Changing Themes
+          - Users will have the option to switch between GUI Colour themes, to make it more personalized, whether they like
+            darker UI or light UI, We would include many options.
+      - Recorder
+          - Users will have the ability to record themselves using our built in audio recorder.
