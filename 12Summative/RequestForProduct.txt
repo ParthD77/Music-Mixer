@@ -9,8 +9,7 @@ a) The Problem Definition
       This program's main purpose is to allow users to create their own music. Allowing new and upcoming artists to 
       create music for absolutely free, while also being given a very easy to use GUI, for easy navigation. 
 
-b) The Analysis
-       Key Features:
+b) Feature Description
       - Project Management
           - Users will be able to save files, open files, and open exsting projects
           - Project will store data such as # and location of beats/vocals, instrument choices, and more.
