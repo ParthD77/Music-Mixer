@@ -9,7 +9,7 @@ import javax.sound.sampled.TargetDataLine;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ *
  */
 
 /**
@@ -19,9 +19,7 @@ import javax.swing.JOptionPane;
  * //https://www.youtube.com/watch?v=WSyTrdjKeqQ
  */
 public class Recorder {
-
-
-	public static void main(String[] args) {
+	public static void record(String fileName) {
 		try {
 			AudioFormat af = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 44100, 16, 2, 4, 44100, false);
 
@@ -42,7 +40,7 @@ public class Recorder {
 				@Override public void run()
 				{
 					AudioInputStream rS = new AudioInputStream(targetLine);
-					File outputFile = new File("record.wav");
+					File outputFile = new File(fileName);
 					try {
 						AudioSystem.write(rS, AudioFileFormat.Type.WAVE, outputFile);
 					}
@@ -51,7 +49,7 @@ public class Recorder {
 					}
 				}
 			};
-			
+
 			audioRecorderThread.start();
 			JOptionPane.showMessageDialog(null, "Stop recording");
 			targetLine.stop();
@@ -59,5 +57,11 @@ public class Recorder {
 		}
 		catch(Exception e){
 		}
+	}
+
+
+
+	public static void main(String[] args) {
+		record("record.wav");
 	}
 }
