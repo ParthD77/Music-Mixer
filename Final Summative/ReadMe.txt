@@ -1,0 +1,1 @@
+All the ideas, drawings, requirements and stuff is in the "Pre stuff" folder in the same path as this file.
