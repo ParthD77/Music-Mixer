@@ -4,13 +4,10 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
 
+import javax.imageio.*;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 /**
  *
@@ -18,7 +15,7 @@ import javax.swing.SwingUtilities;
 
 /**
  * @author parth
- *
+ *asdasd
  *
  * // you can add a set width and height method if we want to allow adjustable boxes
  */
@@ -26,11 +23,13 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 	private int  x, y;
 	private String note;
 	private Color c;
+	private boolean moveable;
+	private JLabel icon;
 
-	public Draggable(int width, int height, Color color, String note) {
+	public Draggable(Color color, String note) {
+		changeMoveable(false);
 		setColor(color);
 		setNote(note);
-		setBounds(0, 0, width, height);
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}
@@ -49,16 +48,32 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 		return getBackground();
 	}
 
+	public void setIcon(String fileName) {
+		try {
+			icon = new JLabel();
+			icon.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("imgs/" + fileName))));
+			add(icon);
+			setSize(icon.getPreferredSize());
+		}
+		catch (Exception e) {}
+	}
 
+	public void removeIcon() {remove(icon);}
+
+
+	public void changeMoveable(Boolean valid){moveable = valid;}
+
+	// to make it so that the component stick to where the mouse pressed it,
+	// not the corner of the component
 	public void mousePressed(MouseEvent e) {
 		x = e.getX();
 		y = e.getY();
-
 	}
 
-	@Override
+	@Override // move the component
 	public void mouseDragged(MouseEvent e) {
-		if(SwingUtilities.isRightMouseButton(e)) { // check if its a right click to drag
+		// check if its a right click to drag and moveable
+		if(SwingUtilities.isRightMouseButton(e) && moveable) {
 			setLocation(e.getX() - x + getLocation().x, e.getY() - y + getLocation().y);
 		}
 	}
@@ -66,6 +81,10 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(SwingUtilities.isLeftMouseButton(e)) makeSound(note);  // play  music if clicked
+	}
+
+	public void forceSound() {
+		makeSound(note);  // play on timer
 	}
 
 
@@ -76,9 +95,7 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 			Clip clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(lol));
 			clip.start();
-		} catch (Exception e){
-			e.printStackTrace();
-		}
+		} catch (Exception e){}
 	}
 
 
@@ -100,11 +117,12 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 		panel.setLayout(null);
 
 		for (int i = 0; i < 10; i++) {
-			Draggable component = new Draggable(50, 50, new  Color(20*i, 30, 30), "ceeday-huh-sound-effect.wav");
-			panel.add(component);
+			Draggable component = new Draggable(new  Color(20*i, 30, 30), "ceeday-huh-sound-effect.wav");
 			component.setBounds(i * 50, i * 50, 50, 50);
-
+			component.changeMoveable(true);
+			panel.add(component);
 		}
+
 
 		panel.setBounds(0, 0, 500, 500);
 		frame.add(panel);
