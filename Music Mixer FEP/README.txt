@@ -1,1 +1,0 @@
-Program is compatible with Intellij and Eclipse
