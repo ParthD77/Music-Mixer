@@ -40,7 +40,7 @@ public class Recorder {
 				@Override public void run()
 				{
 					AudioInputStream rS = new AudioInputStream(targetLine);
-					File outputFile = new File(fileName);
+					File outputFile = new File("sounds/"+fileName);
 					try {
 						AudioSystem.write(rS, AudioFileFormat.Type.WAVE, outputFile);
 					}
@@ -56,6 +56,7 @@ public class Recorder {
 			targetLine.close();
 		}
 		catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 

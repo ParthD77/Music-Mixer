@@ -7,13 +7,14 @@ public class Instrument {
     private int amount;
     private Draggable[] beats;
 
-    public Instrument(int counter, int amount, String sound){
+    public Instrument(int counter, int amount, String sound, String activity){
     this.amount = amount;
         beats = new Draggable[amount];
         for (int i = 0; i < amount; i++) {
-            beats[i] = new Draggable(new Color(200, 10*i, 30), sound);
-            beats[i].setBounds(150+i * 90, 70*counter+50, 50, 50);
-            beats[i].changeMoveable(false);
+            beats[i] = new Draggable(new Color(0, 0, 200), sound, i);
+            beats[i].setBounds(150+i * 100, 70*counter+70, 50, 50);
+            System.out.println(amount);
+            if (activity.charAt(i) == '1') beats[i].setActivity(true);
         }
     }
 
@@ -23,26 +24,25 @@ public class Instrument {
         }
     }
 
-    public void setVisible(boolean visible){
-        for (int i = 0; i < amount; i++) {
-            beats[i].setEnabled(visible);
-        }
+    public String getInstrument() {
+        return beats[0].getNote();
     }
 
-    public JPanel addBeats(JPanel panel){
+    public Draggable getBeat(int spot) {
+        return beats[spot];
+    }
+
+
+    public void addBeats(JPanel panel){
         for (int i = 0; i < amount; i++) {
             panel.add(beats[i]);
         }
-        return panel;
     }
 
     public int getBeatsCount() {
         return amount;
     }
 
-    public void forceSound(int spot) {
-        beats[spot].forceSound();
-    }
 
     public static void main (String[] args) {
     }
