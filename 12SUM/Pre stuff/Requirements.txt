@@ -1,7 +1,0 @@
-Implementations:
-  - 
-
-At the end:
-  - Create a jar file for the project
-  - Make sure there are completed header blocks for every file
-  - Make sure there is Self Testing for every file
