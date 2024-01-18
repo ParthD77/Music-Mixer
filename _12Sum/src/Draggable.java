@@ -30,7 +30,8 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 	private JLabel icon;
 	private boolean active;
 
-	public Draggable() {
+	public Draggable(String note) {
+		setNote(note);
 		changeMoveable(false);
 		addMouseListener(this);
 		addMouseMotionListener(this);
@@ -78,6 +79,7 @@ public class Draggable extends JPanel implements MouseListener, MouseMotionListe
 
 	public void setIcon(String fileName) {
 		try {
+			setColor(new Color(Color.OPAQUE));
 			icon = new JLabel();
 			icon.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("imgs/" + fileName))));
 			add(icon);
